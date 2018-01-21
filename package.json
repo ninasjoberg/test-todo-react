@@ -17,7 +17,7 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "collectCoverageForm" : [
+    "collectCoverageFrom" : [
       "src/*/*.js",
       "!src/index.js",
       "!src/registerServiceWorker.js",
