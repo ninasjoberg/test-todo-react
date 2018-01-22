@@ -1,0 +1,12 @@
+
+li {
+    list-style: none;
+}
+
+.item {
+    display: flex;
+}
+
+.itemButton {
+    margin-left: 10px;
+}
