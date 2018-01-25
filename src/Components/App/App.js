@@ -3,14 +3,16 @@ import './App.css';
 import ToDoForm from '../ToDoForm/ToDoForm';
 import ToDoList from '../ToDoList/ToDoList';
 import DoneList from '../DoneList/DoneList';
+import { saveItemListToLocalStorage } from '../utils/localStorage';
+
 
 let counter = 0;
 
 class App extends Component {
     state = {
         addToDo: '',
-        toDoList: [],
-        doneList: [],
+        toDoList: this.props.toDoList,
+        doneList: this.props.doneList,
         errorMessage: '',
     }
 
@@ -32,8 +34,10 @@ class App extends Component {
                 text: this.state.addToDo,
                 id: counter,
             };
-            this.setState({ toDoList: [...this.state.toDoList, toDo] });
+            const newToDoList = [...this.state.toDoList, toDo];
+            this.setState({ toDoList: newToDoList });
             this.setState({ addToDo: '' });
+            saveItemListToLocalStorage(newToDoList, 'toDoList');
         }
     }
 
@@ -42,11 +46,15 @@ class App extends Component {
         if (!doneItem || (typeof (doneItem) !== 'object')) {
             throw Error('doneItem must be an object');
         }
-        this.setState({ doneList: [...this.state.doneList, doneItem] });
+        const newDoneList = [...this.state.doneList, doneItem];
+        this.setState({ doneList: newDoneList });
+        saveItemListToLocalStorage(newDoneList, 'doneList');
+
         const newToDoList = this.state.toDoList.filter((item) => {
             return item.id !== doneItem.id;
         });
         this.setState({ toDoList: newToDoList });
+        saveItemListToLocalStorage(newToDoList, 'toDoList');
     }
 
 
@@ -58,6 +66,7 @@ class App extends Component {
             return item.id !== deleteItem.id;
         });
         this.setState({ toDoList: newToDoList });
+        saveItemListToLocalStorage(newToDoList, 'toDoList');
     }
 
 
@@ -69,6 +78,7 @@ class App extends Component {
             return item.id !== deleteItem.id;
         });
         this.setState({ doneList: newDoneList });
+        saveItemListToLocalStorage(newDoneList, 'doneList');
     }
 
 

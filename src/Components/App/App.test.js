@@ -11,12 +11,12 @@ components integrate correctly. Enzyme supports full rendering with mount(),
 and you can also use it for testing state changes and component lifecycle.*/
 
 it('renders without crashing', () => {
-    shallow(<App />);
+    shallow(<App toDoList={[]} doneList={[]} />);
 });
 
 describe('test the internal method addToDoList', () => {
     const preventDefault = jest.fn();
-    const wrapper = mount(<App />);
+    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
     it('adds a todoItem to toDoList in state', () => {
         wrapper.setState({ addToDo: 'tvätta' });
         wrapper.instance().addToDoList({ preventDefault });
@@ -63,7 +63,7 @@ const newListOfTodos = [{
 }];
 
 describe('test the internal method addToDoneList', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
     it('adds a todoItem to doneList in state', () => {
         wrapper.setState({ toDoList: listOfTodos });
         wrapper.instance().addToDoneList(toDoObj);
@@ -80,7 +80,7 @@ describe('test the internal method addToDoneList', () => {
 
 
 describe('test the internal method deleteToDo', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
     it('delets a todoItem from toDoList in state', () => {
         wrapper.setState({ toDoList: listOfTodos });
         wrapper.instance().deleteToDo(toDoObj);
@@ -96,7 +96,7 @@ describe('test the internal method deleteToDo', () => {
 
 
 describe('test the internal method deleteDone', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
     it('delets a todoItem from doneList in state', () => {
         wrapper.setState({ doneList: listOfTodos });
         wrapper.instance().deleteDone(toDoObj);
