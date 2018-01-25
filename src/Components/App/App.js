@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import ToDoForm from './Components/ToDoForm/ToDoForm';
-import ToDoList from './Components/ToDoList/ToDoList';
-import DoneList from './Components/DoneList/DoneList';
+import ToDoForm from '../ToDoForm/ToDoForm';
+import ToDoList from '../ToDoList/ToDoList';
+import DoneList from '../DoneList/DoneList';
 
 let counter = 0;
 
