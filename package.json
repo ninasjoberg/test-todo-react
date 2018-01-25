@@ -18,16 +18,6 @@
     "test:coverage": "npm test -- --coverage",
     "eject": "react-scripts eject"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/*/*.js",
-      "!src/index.js",
-      "!src/registerServiceWorker.js",
-      "!src/setupTests.js",
-      "!<rootDir>/node_modules/",
-      "!<rootDir>/path/to/dir/"
-    ]
-  },
   "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "^4.16.0",
@@ -37,12 +27,20 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1"
   },
-  "coverageThreshold": {
-    "global": {
-      "branches": 80,
-      "functions": 80,
-      "lines": 80,
-      "statements": 0
+  "jest": {
+    "collectCoverageFrom": [
+      "src/*/*/*.js",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/setupTests.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 0
+      }
     }
   }
 }
