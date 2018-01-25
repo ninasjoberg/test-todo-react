@@ -23,7 +23,7 @@ class App extends Component {
     addToDoList = (event) => {
         event.preventDefault();
 
-        if (this.state.addToDo === '') {
+        if (this.state.addToDo === '' || this.state.addToDo < 2) {
             this.setState({ errorMessage: 'type in a ToDo' });
         } else {
             this.setState({ errorMessage: '' });
@@ -38,7 +38,10 @@ class App extends Component {
     }
 
 
-    addDoneList = (doneItem) => {
+    addToDoneList = (doneItem) => {
+        if (!doneItem || (typeof (doneItem) !== 'object')) {
+            throw Error('doneItem must be an object');
+        }
         this.setState({ doneList: [...this.state.doneList, doneItem] });
         const newToDoList = this.state.toDoList.filter((item) => {
             return item.id !== doneItem.id;
@@ -48,6 +51,9 @@ class App extends Component {
 
 
     deleteToDo = (deleteItem) => {
+        if (!deleteItem || (typeof (deleteItem) !== 'object')) {
+            throw Error('deleteItem must be an object');
+        }
         const newToDoList = this.state.toDoList.filter((item) => {
             return item.id !== deleteItem.id;
         });
@@ -56,8 +62,11 @@ class App extends Component {
 
 
     deleteDone = (deleteItem) => {
+        if (!deleteItem || (typeof (deleteItem) !== 'object')) {
+            throw Error('deleteItem must be an object');
+        }
         const newDoneList = this.state.doneList.filter((item) => {
-            return item !== deleteItem;
+            return item.id !== deleteItem.id;
         });
         this.setState({ doneList: newDoneList });
     }
@@ -70,7 +79,7 @@ class App extends Component {
                     <h1 className="App-title">To-Do testApp</h1>
                 </header>
                 <article className="main-content">
-                    {this.state.errorMessage && <p className="input-error-message">{this.state.errorMessage}</p>}
+                    {(this.state.errorMessage !== '') && <p className="input-error-message">{this.state.errorMessage}</p>}
                     <ToDoForm
                         onChange={this.changeHandler}
                         onSubmit={this.addToDoList}
@@ -80,7 +89,7 @@ class App extends Component {
                         <ToDoList
                             toDoList={this.state.toDoList}
                             onDelete={this.deleteToDo}
-                            onDone={this.addDoneList}
+                            onDone={this.addToDoneList}
                         />
                         <DoneList
                             doneList={this.state.doneList}

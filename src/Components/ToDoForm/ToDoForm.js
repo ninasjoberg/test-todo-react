@@ -11,5 +11,3 @@ export default function ToDoForm(props) {
         </div>
     );
 }
-
-
