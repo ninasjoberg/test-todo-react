@@ -1,10 +1,19 @@
 import React from 'react';
-import DoneList from './DoneList.js';
 import { shallow } from 'enzyme';
+import DoneList from './DoneList';
 
 
 it('renders a list of Done', () => {
-    const doneList = ['åka pulka', 'ring ett samtal']
+    const doneList = [
+        {
+            text: 'åka pulka',
+            id: 0,
+        },
+        {
+            text: 'träna',
+            id: 1,
+        },
+    ];
     const wrapper = shallow(<DoneList doneList={doneList} />);
     expect(wrapper.find('.list-of-dones').children()).toHaveLength(2);
 });
