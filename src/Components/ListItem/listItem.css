@@ -7,6 +7,17 @@ li {
     display: flex;
 }
 
-.deleteButton {
-    margin-left: 10px;
+button {
+    height: 25px;
+    border: none;
+    margin: 5px;
+}
+
+
+.delete-button {
+    background-color: #991f00;
+}
+
+.complete-button {
+    background-color: #264d00;
 }

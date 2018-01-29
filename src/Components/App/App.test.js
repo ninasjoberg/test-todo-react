@@ -109,3 +109,4 @@ describe('test the internal method deleteDone', () => {
         expect(tryToDeleteWithFaltyArg).toThrowError('deleteItem must be an object');
     });
 });
+

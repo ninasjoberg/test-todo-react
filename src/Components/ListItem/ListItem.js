@@ -9,15 +9,17 @@ export default function ListItem(props) {
     } = props;
 
     return (
-      <div>
-        <li className="item">
-            <p>{item.text}</p>
-            <button className="deleteButton" onClick={() => onDelete(item)}>Delete</button>
-            {(type === 'todo') &&
-                <button className="completeButton" onClick={() => onDone(item)}>Completed</button>
-            }
-        </li>
-      </div>
+        <div>
+            <li className="item">
+                <p>{item.text}</p>
+                <div className="buttons">
+                    <button className="delete-button" onClick={() => { onDelete(item); }}>Delete</button>
+                    {(type === 'todo') &&
+                        <button className="complete-button" onClick={() => { onDone(item); }}>Completed</button>
+                    }
+                </div>
+            </li>
+        </div>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import ListItem from './ListItem';
 
 
@@ -23,13 +23,37 @@ it('renders an li-tag when tehre is a todo', () => {
 it('renders a complete-button if typ=todo', () => {
     const type = 'todo';
     const wrapper = shallow(<ListItem type={type} item={item} />);
-    expect(wrapper.find('.completeButton').exists()).toBeTruthy();
+    expect(wrapper.find('.complete-button').exists()).toBeTruthy();
 });
 
 
 it('does not render a complete-button if typ=done', () => {
     const type = 'done';
     const wrapper = shallow(<ListItem type={type} item={item} />);
-    expect(wrapper.find('.completeButton').exists()).toBeFalsy();
+    expect(wrapper.find('.complete-button').exists()).toBeFalsy();
 });
+
+
+it('simulate onclick success delete-button', () => {
+    const type = 'toDo';
+    const fakefunc = jest.fn();
+    const wrapper = mount(<ListItem type={type} item={item} onDelete={fakefunc} />);
+    wrapper.find('.delete-button').simulate('click');
+    expect(fakefunc).toHaveBeenCalled();
+});
+
+it('simulate onclick success doneButton', () => {
+    const type = 'todo';
+    const fakefunc = jest.fn();
+    const wrapper = mount(<ListItem type={type} item={item} onDone={fakefunc} />);
+    wrapper.find('.complete-button').simulate('click');
+    expect(fakefunc).toHaveBeenCalled();
+});
+
+
+// it('should have different colors on different type og buttons', () => {
+//     const type = 'done';
+//     const wrapper = shallow(<ListItem type={type} item={item} />);
+//     expect(wrapper.find('<button>')).hasClass('.deleteButton');
+// });
 
