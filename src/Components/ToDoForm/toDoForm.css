@@ -1,0 +1,18 @@
+
+.todo-input {
+    height: 25px;
+    border-color: #EADAD9;
+    border-radius: 5px;
+    padding-left: 5px;
+    width: 300px;
+}
+
+.submit-button {
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: right;
+    color: white;
+    background-color: #336B87;
+}

@@ -8,3 +8,12 @@ export function getItemListFromLocalStorage(listName) {
     return storedToDoList || [];
 }
 
+export function saveCounterToLocalStorage(countNo) {
+    localStorage.setItem('Counter', countNo);
+}
+
+export function getCounterFromLocalStorage(listName) {
+    const storedCounter = localStorage.getItem(listName);
+    return storedCounter || 0;
+}
+

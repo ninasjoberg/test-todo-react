@@ -11,7 +11,7 @@ export default function DoneList(props) {
 
     return (
         <div className="done-list">
-            <h3>Done:</h3>
+            <h1>DONE:</h1>
             <ul className="list-of-dones">
                 {doneList}
             </ul>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import ListItem from './ListItem';
 
 
@@ -56,4 +57,14 @@ it('simulate onclick success doneButton', () => {
 //     const wrapper = shallow(<ListItem type={type} item={item} />);
 //     expect(wrapper.find('<button>')).hasClass('.deleteButton');
 // });
+
+// Snapshot test:
+
+it('should match snapshot', () => {
+    const type = 'todo';
+    const tree = renderer
+        .create(<ListItem type={type} item={item} />)
+        .toJSON();
+    expect(tree).toMatchSnapshot();
+});
 

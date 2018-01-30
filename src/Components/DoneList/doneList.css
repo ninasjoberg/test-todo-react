@@ -1,5 +1,15 @@
+ul {
+    padding: 0;
+}
+
+
 .done-list {
     width: 35%;
-    background-color: lightslategray;
+    min-width: 350px;
+    max-width: 400px;
     min-height: 450px;
+    background-color: #F4F4F5;
+    padding: 50px;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

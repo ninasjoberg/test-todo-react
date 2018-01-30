@@ -17,7 +17,7 @@ export default function ToDoList(props) {
 
     return (
         <div className="todo-list">
-            <h3>ToDo:</h3>
+            <h1>TO-DO:</h1>
             <ul className="list-of-todos">
                 {toDoList}
             </ul>

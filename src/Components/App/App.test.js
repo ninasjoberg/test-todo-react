@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from './App';
 
 /* Unlike the previous smoke test using ReactDOM.render(),
@@ -16,7 +16,12 @@ it('renders without crashing', () => {
 
 describe('test the internal method addToDoList', () => {
     const preventDefault = jest.fn();
-    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
+    const wrapper = shallow(<App toDoList={[]} doneList={[]} />);
+    it('adds an errorMessage to state if no todo', () => {
+        wrapper.setState({ addToDo: '' });
+        wrapper.instance().addToDoList({ preventDefault });
+        expect(wrapper.state().errorMessage).toBeTruthy();
+    });
     it('adds a todoItem to toDoList in state', () => {
         wrapper.setState({ addToDo: 'tvätta' });
         wrapper.instance().addToDoList({ preventDefault });
@@ -24,12 +29,16 @@ describe('test the internal method addToDoList', () => {
             return item.text === 'tvätta';
         });
         expect(todo).toBeTruthy();
+        // expect(saveItemListToLocalStorage).toHaveBeenCalled();
     });
-    it('adds an errorMessage to state if no todo', () => {
-        wrapper.setState({ addToDo: '' });
-        wrapper.instance().addToDoList({ preventDefault });
-        expect(wrapper.state().errorMessage).toBeTruthy();
-    });
+    // it('calls localStorage functions', () => {
+    //     wrapper.setState({ addToDo: 'tvätta' });
+    //     wrapper.instance().addToDoList({ preventDefault });
+    //     const todo = wrapper.state().toDoList.find((item) => {
+    //         return item.text === 'tvätta';
+    //     });
+    //     expect(todo).toBeTruthy();
+    // });
 });
 
 
@@ -63,7 +72,7 @@ const newListOfTodos = [{
 }];
 
 describe('test the internal method addToDoneList', () => {
-    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
+    const wrapper = shallow(<App toDoList={[]} doneList={[]} />);
     it('adds a todoItem to doneList in state', () => {
         wrapper.setState({ toDoList: listOfTodos });
         wrapper.instance().addToDoneList(toDoObj);
@@ -80,7 +89,7 @@ describe('test the internal method addToDoneList', () => {
 
 
 describe('test the internal method deleteToDo', () => {
-    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
+    const wrapper = shallow(<App toDoList={[]} doneList={[]} />);
     it('delets a todoItem from toDoList in state', () => {
         wrapper.setState({ toDoList: listOfTodos });
         wrapper.instance().deleteToDo(toDoObj);
@@ -96,7 +105,7 @@ describe('test the internal method deleteToDo', () => {
 
 
 describe('test the internal method deleteDone', () => {
-    const wrapper = mount(<App toDoList={[]} doneList={[]} />);
+    const wrapper = shallow(<App toDoList={[]} doneList={[]} />);
     it('delets a todoItem from doneList in state', () => {
         wrapper.setState({ doneList: listOfTodos });
         wrapper.instance().deleteDone(toDoObj);

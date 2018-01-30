@@ -13,10 +13,10 @@ export default function ListItem(props) {
             <li className="item">
                 <p>{item.text}</p>
                 <div className="buttons">
-                    <button className="delete-button" onClick={() => { onDelete(item); }}>Delete</button>
                     {(type === 'todo') &&
-                        <button className="complete-button" onClick={() => { onDone(item); }}>Completed</button>
+                        <button className="complete-button" onClick={() => { onDone(item); }}>Done</button>
                     }
+                    <button className="delete-button" onClick={() => { onDelete(item); }}>Delete</button>
                 </div>
             </li>
         </div>

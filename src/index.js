@@ -8,6 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const toDoList = getItemListFromLocalStorage('toDoList');
 const doneList = getItemListFromLocalStorage('doneList');
+const counter = getItemListFromLocalStorage('Counter');
 
-ReactDOM.render(<App toDoList={toDoList} doneList={doneList} />, document.getElementById('root'));
+ReactDOM.render(<App toDoList={toDoList} doneList={doneList} counter={counter} />, document.getElementById('root'));
 registerServiceWorker();

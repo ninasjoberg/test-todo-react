@@ -1,6 +1,15 @@
+ul {
+    padding: 0;
+}
 
 .todo-list {
     width: 35%;
-    background-color: lightslategray;
+    min-width: 350px;
+    max-width: 400px;
+    background-color: #F4F4F5;
     min-height: 450px;
+    padding: 50px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+

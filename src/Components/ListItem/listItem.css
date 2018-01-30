@@ -1,23 +1,31 @@
 
-li {
-    list-style: none;
-}
-
 .item {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 button {
     height: 25px;
     border: none;
+    border-radius: 5px;
     margin: 5px;
+    text-align: right;
+    color: white;
 }
 
+.buttons {
+    min-width: 110px;
+}
+
+p {
+    text-align: left;
+}
 
 .delete-button {
-    background-color: #991f00;
+    background-color: #F54045;
 }
 
 .complete-button {
-    background-color: #264d00;
+    background-color: #6A9A49;
 }
