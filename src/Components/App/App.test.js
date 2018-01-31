@@ -2,17 +2,19 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 
-/* Unlike the previous smoke test using ReactDOM.render(),
-this test only renders <App> and doesn’t go deeper.
-even if <App> itself renders a <Button> that throws, this test will pass.
-Shallow rendering is great for isolated unit tests,
-but you may still want to create some full rendering tests to ensure the
-components integrate correctly. Enzyme supports full rendering with mount(),
-and you can also use it for testing state changes and component lifecycle.*/
 
-it('renders without crashing', () => {
-    shallow(<App toDoList={[]} doneList={[]} />);
+it('test the internal method addToDoList', () => {
+    const fakeEvent = {
+        target: {
+            name: 'addToDo',
+            value: 'mata hunden',
+        },
+    };
+    const wrapper = shallow(<App toDoList={[]} doneList={[]} />);
+    wrapper.instance().changeHandler(fakeEvent);
+    expect(wrapper.state().addToDo).toEqual('mata hunden');
 });
+
 
 describe('test the internal method addToDoList', () => {
     const preventDefault = jest.fn();
@@ -29,16 +31,7 @@ describe('test the internal method addToDoList', () => {
             return item.text === 'tvätta';
         });
         expect(todo).toBeTruthy();
-        // expect(saveItemListToLocalStorage).toHaveBeenCalled();
     });
-    // it('calls localStorage functions', () => {
-    //     wrapper.setState({ addToDo: 'tvätta' });
-    //     wrapper.instance().addToDoList({ preventDefault });
-    //     const todo = wrapper.state().toDoList.find((item) => {
-    //         return item.text === 'tvätta';
-    //     });
-    //     expect(todo).toBeTruthy();
-    // });
 });
 
 

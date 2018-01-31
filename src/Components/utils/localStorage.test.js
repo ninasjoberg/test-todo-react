@@ -1,4 +1,4 @@
-import { getItemListFromLocalStorage } from './localStorage';
+import { getItemListFromLocalStorage, getCounterFromLocalStorage } from './localStorage';
 
 beforeEach(() => {
     localStorage.clear();
@@ -35,4 +35,11 @@ it('should get empty array from localStorage', () => {
     localStorage.setItem('toDoList', JSON.stringify(''));
     const getItemList = getItemListFromLocalStorage('toDoList');
     expect(getItemList).toEqual([]);
+});
+
+
+it('should get counter from localStorage', () => {
+    localStorage.setItem('Counter', 3);
+    const getCounter = getCounterFromLocalStorage('Counter');
+    expect(getCounter).toEqual(3);
 });

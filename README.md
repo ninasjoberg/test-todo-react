@@ -28,4 +28,12 @@ Write unit and e2e tests for a frontend-application, using a test framework. Hav
 - Cypress - e2e test
 
 
+## Usage:
+
+- npm install
+- nvm use (Node v9)
+- npm start
+- npm run test
+- npm run test:coverage
+- npm run cypress:open
 

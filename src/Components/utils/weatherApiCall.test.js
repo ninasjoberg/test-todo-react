@@ -16,3 +16,11 @@ describe('weatherApiCall() using Promises', () => {
 });
 
 fetchMock.restore();
+
+
+// it('trows error if no deleteItem', () => {
+//     const tryToDeleteWithFaltyArg = () => {
+//         wrapper.instance().deleteToDo('plugga');
+//     };
+//     expect(tryToDeleteWithFaltyArg).toThrowError('`We could not find a city called `');
+// });

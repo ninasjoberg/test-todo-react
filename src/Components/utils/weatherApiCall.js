@@ -10,12 +10,12 @@ export default function getWeatherInfoByCity(city) {
         })
         .then((json) => {
             if (json.cod === 404 || json.cod === 504) {
-                alert(`We could not find a city called ${city}`);
+                throw Error(`We could not find a city called ${city}`);
             }
             return json;
         })
         .catch((error) => {
-            console.log(error);
+            throw Error(error);
         });
 }
 

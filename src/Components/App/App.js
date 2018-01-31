@@ -7,8 +7,6 @@ import DoneList from '../DoneList/DoneList';
 import { saveItemListToLocalStorage, saveCounterToLocalStorage } from '../utils/localStorage';
 
 
-// let counter = this.props.counter;
-
 class App extends Component {
     state = {
         addToDo: '',
@@ -40,8 +38,6 @@ class App extends Component {
             this.setState({ toDoList: newToDoList });
             this.setState({ addToDo: '' });
             this.setState({ counter: countNo });
-
-            // TESTA NEDAN??
 
             saveItemListToLocalStorage(newToDoList, 'toDoList');
             saveItemListToLocalStorage(newToDoList, 'toDoList');

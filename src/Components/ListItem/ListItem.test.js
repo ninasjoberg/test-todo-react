@@ -9,6 +9,12 @@ const item = {
     id: 4,
 };
 
+let fakefunc;
+
+beforeEach(() => {
+    fakefunc = jest.fn();
+});
+
 
 it('renders without crashing', () => {
     shallow(<ListItem type="todo" item={item} />);
@@ -37,7 +43,6 @@ it('does not render a complete-button if typ=done', () => {
 
 it('simulate onclick success delete-button', () => {
     const type = 'toDo';
-    const fakefunc = jest.fn();
     const wrapper = mount(<ListItem type={type} item={item} onDelete={fakefunc} />);
     wrapper.find('.delete-button').simulate('click');
     expect(fakefunc).toHaveBeenCalled();
@@ -45,18 +50,11 @@ it('simulate onclick success delete-button', () => {
 
 it('simulate onclick success doneButton', () => {
     const type = 'todo';
-    const fakefunc = jest.fn();
     const wrapper = mount(<ListItem type={type} item={item} onDone={fakefunc} />);
     wrapper.find('.complete-button').simulate('click');
     expect(fakefunc).toHaveBeenCalled();
 });
 
-
-// it('should have different colors on different type og buttons', () => {
-//     const type = 'done';
-//     const wrapper = shallow(<ListItem type={type} item={item} />);
-//     expect(wrapper.find('<button>')).hasClass('.deleteButton');
-// });
 
 // Snapshot test:
 

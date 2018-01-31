@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Header from './Header';
 
 
@@ -27,17 +27,23 @@ describe('test the internal method addWeather', () => {
     });
 });
 
+// it('should call method addWeather during componentDidMount', () => {
+//     const fakeFunk = jest.spyOn(Header.prototype, 'getWeatherInfoByCity');
+//     const wrapper = mount(<Header />);
+//     wrapper.update();
+//     wrapper.instance().getWeatherInfoByCity();
+//     expect(fakeFunk).toHaveBeenCalled();
+
+//     fakeFunk.mockClear();
+// });
+
+// afterEach(() => {
+//     fakeFunk.mockClear();
+// });
+
 // it('should call methodName during componentDidMount', () => {
 //     const methodNameFake = jest.spyOn(MyComponent.prototype, 'methodName');
 //     const wrapper = mount(<MyComponent {...props} />);
 //     expect(methodNameFake).toHaveBeenCalledTimes(1);
 // });
 
-
-// it('handleNameInput', () => {
-//     let wrapper = shallow(<MyComponent/>);
-//     wrapper.instance().searchDish = jest.fn();
-//     wrapper.update();
-//     wrapper.instance().handleNameInput('BoB');
-//     expect(wrapper.instance().searchDish).toBeCalledWith('BoB');
-//  })

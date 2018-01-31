@@ -13,7 +13,7 @@ export function saveCounterToLocalStorage(countNo) {
 }
 
 export function getCounterFromLocalStorage(listName) {
-    const storedCounter = localStorage.getItem(listName);
+    const storedCounter = parseInt(localStorage.getItem(listName));
     return storedCounter || 0;
 }
 
