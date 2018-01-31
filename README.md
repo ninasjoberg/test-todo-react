@@ -1,5 +1,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ninasjoberg/test-todo-react/badge.svg?branch=master)](https://coveralls.io/github/ninasjoberg/test-todo-react?branch=master)
 
+[![Build Status](https://travis-ci.org/ninasjoberg/test-todo-react.svg?branch=master)](https://travis-ci.org/ninasjoberg/test-todo-react)
+
 
 # test-todo-react-app
 
