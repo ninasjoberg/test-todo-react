@@ -34,6 +34,6 @@ Write unit and e2e tests for a frontend-application, using a test framework. Hav
 - nvm use (Node v9)
 - npm start
 - npm run test
-- npm run test:coverage
+- npm test -- --coverage
 - npm run cypress:open
 

@@ -35,6 +35,15 @@ describe('test the internal method addToDoList', () => {
 });
 
 
+it('should show message is shown when errorMessage in state', () => {
+    const wrapper = shallow(<App toDoList={[]} doneList={[]} />);
+    const errorMess = 'type in a ToDo';
+    wrapper.setState({ errorMessage: errorMess });
+    expect(wrapper.find('.input-error-message').exists()).toBeTruthy();
+    expect(wrapper.find('.input-error-message').text()).toBe(errorMess);
+});
+
+
 const listOfTodos = [
     {
         text: 'åka pulka',
