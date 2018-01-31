@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/ninasjoberg/test-todo-react/badge.svg?branch=master)](https://coveralls.io/github/ninasjoberg/test-todo-react?branch=master)
+
+
 # test-todo-react-app
 
 Nina Sjöberg
