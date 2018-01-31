@@ -16,7 +16,8 @@
         "react/prop-types": 0,
         "arrow-body-style": ["error", "always"],
         "prefer-destructuring": ["error", {"object": false, "array": false}],
-        "prefer-template": "error"
+        "prefer-template": "error",
+        "radix": 0
     },
     "parser": "babel-eslint"
 }
